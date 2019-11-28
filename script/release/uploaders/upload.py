@@ -122,6 +122,9 @@ def main():
     if PLATFORM == 'win32':
       run_python_upload_script('upload-node-headers.py', '-v', args.version)
 
+  if PLATFORM == 'win32':
+    upload_electron(release, os.path.join(OUT_DIR, 'windows_toolchain_profile.json'), args)
+
 
 def parse_args():
   parser = argparse.ArgumentParser(description='upload distribution file')
