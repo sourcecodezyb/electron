@@ -3580,7 +3580,7 @@ describe('BrowserWindow module', () => {
         })
 
         it('throws errors for invalid manifest.json files', () => {
-          const badManifestExtensionPath = path.join(fixtures, 'devtools-extensions', 'bad-manifest')
+          const badManifestExtensionPath = path.join(__dirname, 'fixtures', 'devtools-extensions', 'bad-manifest')
           expect(() => {
             BrowserWindow.addDevToolsExtension(badManifestExtensionPath)
           }).to.throw(/Unexpected token }/)
@@ -3591,7 +3591,7 @@ describe('BrowserWindow module', () => {
         const extensionName = 'foo'
 
         before(() => {
-          const extensionPath = path.join(fixtures, 'devtools-extensions', 'foo')
+          const extensionPath = path.join(__dirname, 'fixtures', 'devtools-extensions', 'foo')
           BrowserWindow.addDevToolsExtension(extensionPath)
           expect(BrowserWindow.getDevToolsExtensions()).to.have.property(extensionName)
         })
@@ -3684,7 +3684,7 @@ describe('BrowserWindow module', () => {
         }
       })
 
-      const extensionPath = path.join(fixtures, 'devtools-extensions', 'foo')
+      const extensionPath = path.join(__dirname, 'fixtures', 'devtools-extensions', 'foo')
       BrowserWindow.addDevToolsExtension(extensionPath)
       try {
         showLastDevToolsPanel(w)
@@ -3705,7 +3705,7 @@ describe('BrowserWindow module', () => {
 
     it('serializes the registered extensions on quit', () => {
       const extensionName = 'foo'
-      const extensionPath = path.join(fixtures, 'devtools-extensions', extensionName)
+      const extensionPath = path.join(__dirname, 'fixtures', 'devtools-extensions', extensionName)
       const serializedPath = path.join(app.getPath('userData'), 'DevTools Extensions')
 
       BrowserWindow.addDevToolsExtension(extensionPath)
@@ -3726,7 +3726,7 @@ describe('BrowserWindow module', () => {
 
       it('throws errors for invalid manifest.json files', () => {
         expect(() => {
-          BrowserWindow.addExtension(path.join(fixtures, 'devtools-extensions', 'bad-manifest'))
+          BrowserWindow.addExtension(path.join(__dirname, 'fixtures', 'devtools-extensions', 'bad-manifest'))
         }).to.throw('Unexpected token }')
       })
     })
